@@ -11,7 +11,7 @@ def GetAccessToken(ID, PW):
     """
     ```
     Host: api.bunjang.co.kr
-    User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:74.0) Gecko/20100101 Firefox/74.0
+    User-Agent: Mozilla/5.0 (Linux; Android 10.0.0; SM-F700NZPAKOO) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.101 Mobile Safari/537.36
     Accept: application/json, text/plain, */*
     Accept-Language: ko-KR,ko;q=0.8,en-US;q=0.5,en;q=0.3
     Accept-Encoding: gzip, deflate, br
@@ -37,7 +37,7 @@ def GetAccessToken(ID, PW):
     }
     headers = {
         "Host": "api.bunjang.co.kr",
-        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:74.0) Gecko/20100101 Firefox/74.0",
+        "User-Agent": "Mozilla/5.0 (Linux; Android 10.0.0; SM-F700NZPAKOO) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.101 Mobile Safari/537.36",
         "Content-Type": "application/json;charset=utf-8",
         "Origin": "https://m.bunjang.co.kr"
     }
@@ -50,7 +50,7 @@ def Login(access_token):
     """
     ```http
     Host: api.bunjang.co.kr
-    User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:74.0) Gecko/20100101 Firefox/74.0
+    User-Agent: Mozilla/5.0 (Linux; Android 10.0.0; SM-F700NZPAKOO) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.101 Mobile Safari/537.36
     Content-Type: application/json;charset=utf-8
     Origin: https://m.bunjang.co.kr
     Connection: keep-alive
@@ -67,7 +67,7 @@ def Login(access_token):
     }
     headers = {
         "Host": "api.bunjang.co.kr",
-        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:74.0) Gecko/20100101 Firefox/74.0",
+        "User-Agent": "Mozilla/5.0 (Linux; Android 10.0.0; SM-F700NZPAKOO) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.101 Mobile Safari/537.36",
         "Content-Type": "application/json;charset=utf-8",
         "Origin": "https://m.bunjang.co.kr",
         "Connection": "keep-alive",
