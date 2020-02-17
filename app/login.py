@@ -1,13 +1,14 @@
 import requests
 import json
 from hashlib import sha1
-from utils.Validator import PhoneNumberValidator
-from utils._Pwsha1 import pwhash
+from .utils.Validator import PhoneNumberValidator
+from .utils._Pwsha1 import pwhash
 
-ID = PhoneNumberValidator(numberi=input("ID :"))
-PW = pwhash(arg=input("PW :"))
 
-def GetAccessToken(ID, PW):
+def LoginInput(ID, PW) -> dict:
+    return Login(access_token=GetAccessToken(ID=PhoneNumberValidator(numberi=ID), PW=pwhash(arg=PW)))
+
+def GetAccessToken(ID: str, PW: str) -> str:
     """
     ```
     Host: api.bunjang.co.kr
@@ -41,10 +42,7 @@ def GetAccessToken(ID, PW):
         "Content-Type": "application/json;charset=utf-8",
         "Origin": "https://m.bunjang.co.kr"
     }
-
-    resp = requests.post(url, json=loginPayload, headers=headers).json()
-    access_token = resp["access_token"]
-    return access_token
+    return requests.post(url, json=loginPayload, headers=headers).json()["access_token"]
 
 def Login(access_token):
     """
@@ -75,9 +73,5 @@ def Login(access_token):
         "TE": "Trailers"
     }
     request = requests.Session()
-    auth = request.post(url=url, json=loginPayload, headers=headers).json()
-    return auth
-
-access_token = GetAccessToken(ID=ID, PW=PW)
-app = Login(access_token=access_token)
-print(app)
+    return request.post(url=url, json=loginPayload, headers=headers).json()
+    
