@@ -4,7 +4,7 @@ import numba
 import asyncio
 from aiogram import Bot, Dispatcher, executor, types
 from app.login import LoginInput
-from app.findv2 import Product, Price, JsonData, dataL
+from app.findv2 import Product, Price, JsonData, dataL, productImg, location
 
 with open('conf.json') as conf:
     data: dict = json.load(conf)
@@ -44,10 +44,11 @@ async def chlwjrrk(message: types.Message):
     data = JsonData()
     a = Product(o=dataL(JsonData=data))
     b = Price(l=dataL(JsonData=data))
+    c = productImg(i=dataL(JsonData=data))
+    d = location(x=dataL(JsonData=data))
     loop = len(a)
     for x in range(loop):
-        await asyncio.sleep(delay=1)
-        await message.reply(text=f"{a[x]}   {b[x]}")
+        await message.reply(text=f"{a[x]}   {b[x]} \n  {c[x]}  \n {d[x]}")
 
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
