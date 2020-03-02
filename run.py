@@ -5,7 +5,7 @@ import asyncio
 from aiogram import Bot, Dispatcher, executor, types
 from app.login import LoginInput
 from app.findv2 import Product, Price, JsonData, dataL, productImg, location
-
+from app.ncov19 import nCov19
 with open('conf.json') as conf:
     data: dict = json.load(conf)
     Token: str = data['Telegram']['Token']
@@ -49,6 +49,17 @@ async def chlwjrrk(message: types.Message):
     loop = len(a)
     for x in range(loop):
         await message.reply(text=f"{a[x]}   {b[x]} \n  {c[x]}  \n {d[x]}")
+
+@numba.jit(nopython=True, parallel=True)
+@dp.message_handler(commands=['코로나', 'ncov', '코로나19'])
+async def ncov(message: types.Message):
+    data = nCov19()
+    db = data.InfectiousDisease()
+    length = len(db)
+    for i in range(length):
+        await message.reply(text=db[i])
+
+
 
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
