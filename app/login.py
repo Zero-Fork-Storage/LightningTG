@@ -42,7 +42,7 @@ def GetAccessToken(ID: str, PW: str) -> str:
         "Content-Type": "application/json;charset=utf-8",
         "Origin": "https://m.bunjang.co.kr"
     }
-    return requests.post(url, json=loginPayload, headers=headers).json()["access_token"]
+    return requests.post(url, json=loginPayload, headers=headers, verify=False).json()["access_token"]
 
 def Login(access_token):
     """
@@ -73,5 +73,5 @@ def Login(access_token):
         "TE": "Trailers"
     }
     request = requests.Session()
-    return request.post(url=url, json=loginPayload, headers=headers).json()
+    return request.post(url=url, json=loginPayload, headers=headers, verify=False).json()
     

@@ -11,11 +11,10 @@ def listappend(JsonData):
         price = JsonData[i]['price']
         name = JsonData[i]['name']
         if (price == '0') == True:
-            del price
+            del price, name
         else:
-            x = str(name) ,int(price)
+            x = str(name), int(price)
             yield x
-
 
 def dataL(JsonData):
     data = []
